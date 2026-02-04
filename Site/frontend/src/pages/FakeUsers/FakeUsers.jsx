@@ -3,7 +3,7 @@ import { api } from "../../services/api";
 import "./FakeUsers.css";
 
 export default function FakeUsers() {
-  const [quantity, setQuantity] = useState(5);
+  const [quantity, setQuantity] = useState(10);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
@@ -16,6 +16,12 @@ export default function FakeUsers() {
     subject: "",
     body: "",
   });
+
+  const isQuantityValid =
+    quantity &&
+    !isNaN(quantity) &&
+    Number(quantity) >= 10 &&
+    Number(quantity) <= 1000
 
   async function generateUsers() {
     setError("");
@@ -115,15 +121,26 @@ export default function FakeUsers() {
               <input
                 id="quantity"
                 type="number"
-                min="1"
-                max="10000"
+                min={10}
+                max={1000}
                 value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                
+                onChange={(e) => {
+                  setQuantity(e.target.value)
+                  setError("");
+                }}
+                onBlur={() => {
+                  const value = Number(quantity)
+                  if (!isQuantityValid) {
+                    setError('A quantidade deve estar entre 10 e 1000')
+                  }
+                }}
               />
+
               <button
                 onClick={generateUsers}
                 className="generate-button"
-                disabled={loading}
+                disabled={loading || !isQuantityValid}
               >
                 {loading ? (
                   <>
