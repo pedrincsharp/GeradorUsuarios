@@ -1,7 +1,6 @@
 # Gerador de Usuários
 
-Aplicativo web desenvolvido em . NET 10 com um frontend em React + Vite, que possibilita a usuários logados a produção de arquivos Excel com dados inventados de clientes e a possibilidade de enviá-los via e-mail.
-O sistema apresenta uma interface fácil de usar e compreensível para a geração de entre 10 e 1.000 registros simulados, incluindo dados como nome, e-mail, telefone e data de nascimento.
+Aplicativo web desenvolvido em . NET 10 com um frontend em React + Vite, que possibilita a usuários logados a produção de arquivos Excel com dados inventados de usuários e a possibilidade de enviá-los via e-mail.
 
 ## Pré-requisitos
 
